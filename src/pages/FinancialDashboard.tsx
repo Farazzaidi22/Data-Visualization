@@ -2,6 +2,7 @@ import { BoxComponent } from "../components/BoxComponent";
 import { BoxWithPieChart } from "../components/BoxWithPieChart";
 import { MultitypeChart } from "../components/MultitypeChart";
 import { SingleDoughnutChart } from "../components/SingleDoughnutChart";
+
 import "../css/FinancialDashboard.css";
 
 export const FinancialDashboard = ( props: any ) => {

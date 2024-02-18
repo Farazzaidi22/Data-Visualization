@@ -5,31 +5,46 @@ import LiabilitiesVsPlan from './pages/LiabilitiesVsPlan'
 import AssetsVsPlan from './pages/AssetsVsPlan'
 import HomePage from './pages/HomePage'
 import { FinancialDashboard } from './pages/FinancialDashboard'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { IncomeStatement } from './pages/IncomeStatement'
 import { BalanceSheet } from './pages/BalanceSheet'
 import { JTIS } from './pages/JTIS'
+
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 function App () {
 
   return (
     <>
-      {/* <LiabilitiesVsPlan /> */ }
+      <FinancialDashboard />
+
+
+      <hr />
+
       {/* <AssetsVsPlan />
+      <hr />
 
       <HomePage />
+      <hr />
 
-      <FinancialDashboard /> */}
+      <FinancialDashboard />
+      <hr />
 
-      {/* <FinancialDashboard /> */}
+      <JTIS />
+      <hr />
 
-      {/* <IncomeStatement /> */}
+      <IncomeStatement />
+      <hr />
 
-      {/* <BalanceSheet/ > */}
+      <BalanceSheet />
+      <hr />
 
-      <JTIS/ >
+      <FinancialDashboard />
+      <hr /> */}
 
+
+      {/* <LiabilitiesVsPlan /> */ }
     </>
   )
 }

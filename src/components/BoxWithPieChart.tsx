@@ -23,11 +23,10 @@ export const BoxWithPieChart = () => {
                 alignItems: "center",
                 width: "100%",
                 borderTop: "1px solid black",
-                border: "1px solid red"
             } }>
 
 
-                <div style={ {} }>
+                <div style={ { marginTop: "5%" } }>
                     <SingleDoughnutChart
                         perc1={ 85 }
                         perc2={ 15 }
@@ -38,23 +37,14 @@ export const BoxWithPieChart = () => {
                     />
                 </div>
 
-                <div style={ {
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between",
-
-                } }>
-                    <span>Budget</span>
-                    <span>5000</span>
+                <div className="bottom-row-card">
+                    <span className="bottom-card-text" >Budget</span>
+                    <span className="bottom-card-text" >5000</span>
                 </div>
 
-                <div style={ {
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between"
-                } }>
-                    <span>Balance</span>
-                    <span>-5000</span>
+                <div className="bottom-row-card">
+                    <span className="bottom-card-text" >Budget</span>
+                    <span className="bottom-card-text" >5000</span>
                 </div>
             </div>
         </div>

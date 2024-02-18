@@ -1,78 +1,48 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
-import { Chart, ArcElement } from "chart.js";
+import { Chart, ArcElement } from 'chart.js';
 Chart.register( ArcElement );
 
 
-export const data = {
-    labels: [ 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange' ],
-    datasets: [
-        {
-            label: 'First Series',
-            data: [ 12, 19, 3, 5, 2, 3 ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-        },
-        {
-            label: 'Second Series',
-            data: [ 8, 15, 6, 10, 5, 8 ], // Add data for the second series
-            backgroundColor: [
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 205, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1,
-        },
-    ],
-};
 
-export function DoughnutChart () {
+export function DoughnutChart ( props: any ) {
+
+    const { chartTitle, centerText, perc1, white1, color1, perc2, white2, color2 } = props;
+
+    const data = {
+        datasets: [
+            {
+                data: [ perc1, white1, ],
+                backgroundColor: [ color1, '#fff' ],
+                borderColor: [ color1, '#fff' ],
+                borderWidth: 1,
+                cutout: '75%', // Adjust the width of the outer circle (half circle)
+            },
+            {
+                data: [ perc2, white2, ],
+                backgroundColor: [ color2, '#fff' ],
+                borderColor: [ color2, '#fff' ],
+                borderWidth: 1,
+                cutout: '73%', // Adjust the width of the inner circle (quarter circle)
+            },
+        ],
+    };
+
     return (
-        <Doughnut
+        <Pie
             data={ data }
             options={ {
-                cutout: '80%', // Adjust the width of the donut chart
                 plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function ( context ) {
-                                let label = context.label || '';
-                                if ( label ) {
-                                    label += ': ';
-                                }
-                                if ( context.parsed ) {
-                                    label += context.parsed + ' votes';
-                                }
-                                return label;
-                            },
-                        },
+                    legend: {
+                        display: false, // Hide the legend
+                    },
+                    title: {
+                        display: true,
+                        text: chartTitle,
+                        font: {
+                            size: 20 // Adjust the font size as needed
+                        }
                     },
                 },
             } }
@@ -87,7 +57,7 @@ export function DoughnutChart () {
                         const fontSize = ( height / 150 ).toFixed( 2 );
                         ctx.font = `${ fontSize }em sans-serif`;
                         ctx.textBaseline = 'top';
-                        const text = '23';
+                        const text = centerText;
                         const textX = Math.round( ( width - ctx.measureText( text ).width ) / 2 );
                         const textY = height / 2;
                         ctx.fillText( text, textX, textY );

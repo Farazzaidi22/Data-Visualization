@@ -5,7 +5,7 @@ import "../css/HomePage.css"; // Import CSS file for styling
 import { BarChart } from "../components/BarChart";
 import { DoughnutChart } from "../components/DoughnutChart";
 import { SingleLineChart } from "../components/SingleLineChart";
-import { MultitypeChart } from "../components/MultitypeChart";
+import { StackedBarChart } from "../components/StackedBarChart";
 import { SingleBarChart } from "../components/SingleBarChart";
 
 // Box 1
@@ -80,7 +80,7 @@ const HomePage = () => {
             {/* First row */ }
             <div className="first-row">
                 <div className="grid-item first-column">
-                    <MultitypeChart
+                    <StackedBarChart
                         chartData={ barChartData }
                         chartOptions={ barChartOptions }
                     />

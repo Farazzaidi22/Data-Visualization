@@ -3,7 +3,6 @@ import { BoxWithPieChart } from "../components/BoxWithPieChart";
 import { MultitypeChart } from "../components/MultitypeChart";
 import { SingleDoughnutChart } from "../components/SingleDoughnutChart";
 import "../css/FinancialDashboard.css";
-import { FiDollarSign } from "react-icons/fi";
 
 export const FinancialDashboard = ( props: any ) => {
     return (
@@ -63,9 +62,8 @@ export const FinancialDashboard = ( props: any ) => {
 
                 {/* Third row */ }
                 <div className="first-row">
-                    <div className="grid-item first-column">
-                        <MultitypeChart />
-                    </div>
+
+                    <MultitypeChart />
 
                     <BoxWithPieChart />
 

@@ -1,4 +1,3 @@
-import { FiDollarSign } from "react-icons/fi"
 import "../css/FinancialDashboard.css";
 import { SingleDoughnutChart } from "./SingleDoughnutChart";
 
@@ -23,12 +22,12 @@ export const BoxWithPieChart = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                borderTop: "1px solid black"
+                borderTop: "1px solid black",
+                border: "1px solid red"
             } }>
 
 
                 <div style={ {} }>
-
                     <SingleDoughnutChart
                         perc1={ 85 }
                         perc2={ 15 }
@@ -42,7 +41,8 @@ export const BoxWithPieChart = () => {
                 <div style={ {
                     width: "100%",
                     display: "flex",
-                    justifyContent: "space-between"
+                    justifyContent: "space-between",
+
                 } }>
                     <span>Budget</span>
                     <span>5000</span>

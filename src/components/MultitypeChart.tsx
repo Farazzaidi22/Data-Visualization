@@ -1,5 +1,3 @@
-import React, { MouseEvent, useRef } from 'react';
-import type { InteractionItem } from 'chart.js';
 import {
     Chart as ChartJS,
     LinearScale,
@@ -12,11 +10,9 @@ import {
 } from 'chart.js';
 import {
     Chart,
-    getDatasetAtEvent,
-    getElementAtEvent,
-    getElementsAtEvent,
 } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
+import "../css/FinancialDashboard.css";
 
 
 ChartJS.register(
@@ -30,87 +26,80 @@ ChartJS.register(
 );
 
 export const options = {
+    responsive: true,
     scales: {
         y: {
-            beginAtZero: true,
+            grid: {
+                display: true, // Show y-axis gridlines
+            },
+            ticks: {
+                display: true, // Hide value labels on y-axis
+                count: 11 // Show only 11 gridlines on y-axis
+            }
+        },
+        x: {
+            grid: {
+                display: false, // Show y-axis gridlines
+            },
+            ticks: {
+                display: true // Hide value labels on y-axis
+            }
+        }
+    },
+    plugins: {
+        legend: {
+            position: 'top' as const,
+        },
+        title: {
+            display: false,
         },
     },
+
 };
 
 const labels = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ];
 
-export const data = {
+const data = {
     labels,
     datasets: [
         {
             type: 'line' as const,
-            label: 'Dataset 1',
-            borderColor: 'rgb(255, 99, 132)',
+            label: 'Net Profit',
+            backgroundColor: '#A6C9D3',
+            borderColor: '#A6C9D3',
             borderWidth: 2,
             fill: false,
-            data: labels.map( () => faker.number.int( { min: -5000, max: 6000 } ) ),
+            data: labels.map( () => faker.number.int( { min: 0, max: 1000 } ) ),
         },
         {
             type: 'bar' as const,
-            label: 'Dataset 2',
-            backgroundColor: 'rgb(75, 192, 192)',
-            data: labels.map( () => faker.number.int( { min: -5000, max: 6000 } ) ),
+            label: 'Total Expense',
+            backgroundColor: '#0BB0F5',
+            data: labels.map( () => faker.number.int( { min: -5000, max: 0 } ) ),
             borderColor: 'white',
             borderWidth: 2,
         },
         {
             type: 'bar' as const,
-            label: 'Dataset 3',
-            backgroundColor: 'rgb(53, 162, 235)',
-            data: labels.map( () => faker.number.int( { min: -5000, max: 6000 } ) ),
+            label: 'Total Income',
+            backgroundColor: '#003F77',
+            data: labels.map( () => faker.number.int( { min: 0, max: 5000 } ) ),
         },
     ],
 };
 
 export function MultitypeChart () {
-    const printDatasetAtEvent = ( dataset: InteractionItem[] ) => {
-        if ( !dataset.length ) return;
-
-        const datasetIndex = dataset[ 0 ].datasetIndex;
-
-        console.log( data.datasets[ datasetIndex ].label );
-    };
-
-    const printElementAtEvent = ( element: InteractionItem[] ) => {
-        if ( !element.length ) return;
-
-        const { datasetIndex, index } = element[ 0 ];
-
-        console.log( data.labels[ index ], data.datasets[ datasetIndex ].data[ index ] );
-    };
-
-    const printElementsAtEvent = ( elements: InteractionItem[] ) => {
-        if ( !elements.length ) return;
-
-        console.log( elements.length );
-    };
-
-    const chartRef = useRef<ChartJS>( null );
-
-    const onClick = ( event: MouseEvent<HTMLCanvasElement> ) => {
-        const { current: chart } = chartRef;
-
-        if ( !chart ) {
-            return;
-        }
-
-        printDatasetAtEvent( getDatasetAtEvent( chart, event ) );
-        printElementAtEvent( getElementAtEvent( chart, event ) );
-        printElementsAtEvent( getElementsAtEvent( chart, event ) );
-    };
 
     return (
-        <Chart
-            ref={ chartRef }
-            type='bar'
-            onClick={ onClick }
-            options={ options }
-            data={ data }
-        />
+
+        <div className="grid-item first-column">
+
+            <h2>Income and Expense</h2>
+            <Chart
+                type='bar'
+                options={ options }
+                data={ data }
+            />
+        </div>
     );
 }

@@ -13,15 +13,15 @@ import TableComponent from "../components/TableComponent";
 
 // Box 1
 const columns = [
-    "Liabilities",
-    "Deposits from banks",
-    "Deposits from customers current accounts",
+    "Assets",
+    "Due from banks",
+    "Securities",
 
-    "Deposits from customers current tagesgeld",
-    "Deposits from customers term accounts",
-    "Deposits from customers call deposits",
+    "Cooperate loans",
+    "Margin trading",
+    "Other assets",
 
-    "Other liabilities",
+    "Total assets",
 
 ];
 
@@ -39,7 +39,7 @@ const barChartOptions = {
         },
         title: {
             display: true,
-            text: 'Liabilities vs Plan',
+            text: 'Assets vs Plan',
             font: {
                 size: 25 // Adjust the font size as needed
             }
@@ -50,32 +50,32 @@ const barChartOptions = {
 
 // Box 2
 const lineChartTitles = [
-    "Deposits from banks",
-    "Deposits from customers - current accounts",
-    "Deposits from customers - term accounts",
+    "Due from banks",
+    "Securities",
 
-    "Deposits from customers - call deposits / tagesgeld",
+    "Corporate loans",
+    "Margin trading",
 
-    "Other liabilities",
-    "Equity & Perpetuity",
+    "Other assets",
+    "Total assets",
 
 ];
 
 
 
-const LiabilitiesVsPlan = () => {
+const AssetsVsPlan = () => {
 
     const [ barChartData, setBarChartData ] = React.useState( {
         labels: columns, // Use columns as labels
         datasets: [
             {
-                label: 'Actual',
-                data: columns.map( () => faker.number.int( { min: 0, max: 100000 } ) ),
+                label: 'Assets',
+                data: columns.map( () => faker.number.int( { min: 0, max: 300000 } ) ),
                 backgroundColor: '#006055',
             },
             {
                 label: 'Plan',
-                data: columns.map( () => faker.number.int( { min: 0, max: 100000 } ) ),
+                data: columns.map( () => faker.number.int( { min: 0, max: 300000 } ) ),
                 backgroundColor: '#BFB592',
             },
         ],
@@ -86,7 +86,7 @@ const LiabilitiesVsPlan = () => {
 
     return (
         <>
-            <h1>Liabilities vs Plan 10/2023</h1>
+            <h1>Assets vs Plan 10/2023</h1>
 
             <div className="grid-container">
                 <div className="first-column">
@@ -115,4 +115,4 @@ const LiabilitiesVsPlan = () => {
     );
 };
 
-export default LiabilitiesVsPlan;
+export default AssetsVsPlan;

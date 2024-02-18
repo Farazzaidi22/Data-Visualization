@@ -1,15 +1,17 @@
-import { useState } from 'react'
-import LiabilitiesVsPlan from './pages/LiabilitiesVsPlan'
-
 import './App.css'
 
 
+import LiabilitiesVsPlan from './pages/LiabilitiesVsPlan'
+import AssetsVsPlan from './pages/AssetsVsPlan'
+
+
 function App () {
-  const [ count, setCount ] = useState( 0 )
 
   return (
     <>
-      <LiabilitiesVsPlan />
+      {/* <LiabilitiesVsPlan /> */ }
+      <AssetsVsPlan />
+
     </>
   )
 }

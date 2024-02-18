@@ -1,0 +1,37 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+
+  border: 1px solid red;
+}
+
+.first-column {
+  display: flex;
+  flex-direction: column;
+
+  padding: 5%;
+
+  border: 1px solid red;
+}
+
+.full-width-box {
+  width: 100%; /* Cover full width of the first column */
+  background-color: lightblue;
+  padding: 10px;
+  margin: 1%;
+}
+
+.second-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns in the second column */
+
+  padding: 5%;
+  border: 1px solid red;
+}
+
+.box {
+  background-color: lightgreen;
+  padding: 10px;
+  margin: 1%;
+  text-align: center;
+}

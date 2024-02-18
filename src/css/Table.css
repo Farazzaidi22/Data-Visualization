@@ -1,0 +1,14 @@
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.green-header {
+  background-color: green;
+  color: white;
+  padding: 2% 1%;
+}
+
+.highlighted-row {
+  background-color: #E6E2D6;
+}

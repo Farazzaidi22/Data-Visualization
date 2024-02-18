@@ -23,8 +23,8 @@ ChartJS.register(
 
 export function BarChart ( props: any ) {
 
-    const { chartData, charOptions } = props;
+    const { chartData, chartOptions } = props;
 
 
-    return <Bar options={ charOptions } data={ chartData } />;
+    return <Bar options={ chartOptions } data={ chartData } />;
 }

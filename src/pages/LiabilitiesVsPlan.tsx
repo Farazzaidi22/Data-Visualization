@@ -33,7 +33,7 @@ const data = [
 ];
 
 
-const charOptions = {
+const barChartOptions = {
     responsive: true,
     plugins: {
         legend: {
@@ -52,7 +52,7 @@ const charOptions = {
 
 const LiabilitiesVsPlan = () => {
 
-    const [ chartData, setChartData ] = React.useState( {
+    const [ barChartData, setBarChartData ] = React.useState( {
         labels: columns, // Use columns as labels
         datasets: [
             {
@@ -96,7 +96,7 @@ const LiabilitiesVsPlan = () => {
                         <TableComponent columns={ columns } data={ data } />
                     </div>
                     <div className="full-width-box">
-                        <BarChart chartData={ chartData } charOptions={ charOptions } />
+                        <BarChart chartData={ barChartData } chartOptions={ barChartOptions } />
                     </div>
                 </div>
                 <div className="second-column">

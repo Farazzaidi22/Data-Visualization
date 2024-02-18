@@ -1,8 +1,6 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
-
-  border: 1px solid red;
 }
 
 .first-column {
@@ -10,14 +8,14 @@
   flex-direction: column;
 
   padding: 5%;
-
-  border: 1px solid red;
 }
 
 .full-width-box {
   width: 100%; /* Cover full width of the first column */
   padding: 10px;
   margin: 1%;
+
+  border: 1px solid rgb(236, 223, 223);
 }
 
 .second-column {
@@ -25,12 +23,11 @@
   grid-template-columns: repeat(2, 1fr); /* Two columns in the second column */
 
   padding: 5%;
-  border: 1px solid red;
 }
 
 .box {
-  background-color: lightgreen;
   padding: 10px;
   margin: 1%;
   text-align: center;
+  border: 1px solid rgb(236, 223, 223);
 }

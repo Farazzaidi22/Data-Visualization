@@ -21,39 +21,68 @@ ChartJS.register(
     Legend
 );
 
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top' as const,
-        },
-        title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-        },
-    },
-};
+export function LineChart ( props: any ) {
+    const { chartTitle } = props;
 
-const labels = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ];
-
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Dataset 1',
-            data: labels.map( () => faker.number.int( { min: -1000, max: 1000 } ) ),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false, // Hide dataset labels
+            },
+            title: {
+                display: true,
+                text: chartTitle,
+                font: {
+                    size: 20 // Adjust the font size as needed
+                }
+            },
         },
-        {
-            label: 'Dataset 2',
-            data: labels.map( () => faker.number.int( { min: -1000, max: 1000 } ) ),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        scales: {
+            y: {
+                grid: {
+                    display: true, // Show y-axis gridlines
+                },
+                ticks: {
+                    display: false, // Hide value labels on y-axis
+                    count: 4 // Show only 4 gridlines on y-axis
+                }
+            },
+            x: {
+                grid: {
+                    display: false, // Show y-axis gridlines
+                },
+                ticks: {
+                    display: false // Hide value labels on y-axis
+                }
+            }
         },
-    ],
-};
+        elements: {
+            point: {
+                radius: 0 // Set point radius to 0 to hide points
+            }
+        }
+    };
 
-export function LineChart () {
+    const labels = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                data: labels.map( () => faker.number.int( { min: 100, max: 1000 } ) ),
+                borderColor: '#006055',
+                backgroundColor: '#006055',
+                tension: 0, // Ensure lines are straight without bezier curves
+            },
+            {
+                data: labels.map( () => faker.number.int( { min: 100, max: 1000 } ) ),
+                borderColor: '#BFB592',
+                backgroundColor: '#BFB592',
+                tension: 0, // Ensure lines are straight without bezier curves
+            },
+        ],
+    };
+
     return <Line options={ options } data={ data } />;
 }

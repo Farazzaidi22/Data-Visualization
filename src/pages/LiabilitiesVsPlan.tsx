@@ -13,6 +13,7 @@ import "../css/LiabilitiesVsPlan.css"; // Import CSS for styling
 import TableComponent from "../components/TableComponent";
 
 
+// Box 1
 const columns = [
     "Liabilities",
     "Deposits from banks",
@@ -26,12 +27,11 @@ const columns = [
 
 ];
 
-const data = [
+const tableData = [
     [ "Actual", 9807707, 27346447, 9807707, 27346447, 9807707, 27346447, ],
     [ "Plan", 1414167, 33796156, 9807707, 27346447, 9807707, 27346447, ],
     [ "Diff", 8393539, 33796156, 9807707, 27346447, 9807707, 27346447, ],
 ];
-
 
 const barChartOptions = {
     responsive: true,
@@ -48,6 +48,21 @@ const barChartOptions = {
         },
     },
 };
+
+
+// Box 2
+const lineChartTitles = [
+    "Deposits from banks",
+    "Deposits from customers - current accounts",
+    "Deposits from customers - term accounts",
+
+    "Deposits from customers - call deposits / tagesgeld",
+
+    "Other liabilities",
+    "Equity & Perpetuity",
+
+];
+
 
 
 const LiabilitiesVsPlan = () => {
@@ -93,31 +108,24 @@ const LiabilitiesVsPlan = () => {
             <div className="grid-container">
                 <div className="first-column">
                     <div className="full-width-box">
-                        <TableComponent columns={ columns } data={ data } />
+                        <TableComponent columns={ columns } data={ tableData } />
                     </div>
                     <div className="full-width-box">
                         <BarChart chartData={ barChartData } chartOptions={ barChartOptions } />
                     </div>
                 </div>
                 <div className="second-column">
-                    <div className="box">
-                        <LineChart />
-                    </div>
-                    <div className="box">
-                        <LineChart />
-                    </div>
-                    <div className="box">
-                        <LineChart />
-                    </div>
-                    <div className="box">
-                        <LineChart />
-                    </div>
-                    <div className="box">
-                        <LineChart />
-                    </div>
-                    <div className="box">
-                        <LineChart />
-                    </div>
+
+                    {
+                        lineChartTitles.map( ( item: string, index: number ) => {
+
+                            return (
+                                <div key={ index } className="box">
+                                    <LineChart chartTitle={ item } />
+                                </div>
+                            )
+                        } )
+                    }
                 </div>
             </div>
         </>

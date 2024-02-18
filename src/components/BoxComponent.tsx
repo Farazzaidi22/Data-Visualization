@@ -1,19 +1,20 @@
-import { FiDollarSign } from "react-icons/fi"
 import "../css/FinancialDashboard.css";
 
 
 
-export const BoxComponent = () => {
+export const BoxComponent = ( props: any ) => {
 
+
+    const { boxhHeaderTitle, titleNumber, icon } = props;
 
     return (
 
         <div className="grid-item bottom-right-border"
             style={ {
-                width: "300px",
+                width: "350px",
                 // borderRadius: "10px"
             } }>
-            <h3>Total Income</h3>
+            <h3>{ boxhHeaderTitle }</h3>
 
             <div style={ {
                 display: "flex",
@@ -24,15 +25,15 @@ export const BoxComponent = () => {
             } }>
 
 
-                <FiDollarSign size={ 80 } />
+                { icon } {/* Render the icon directly */ }
 
                 <div style={ {} }>
 
-                    <h3>4 719 00</h3>
+                    <h3>{ titleNumber }</h3>
 
                     <p>16.1%</p>
 
-                    <p>vs previous month</p>
+                    <p className="top-card-text">vs previous month</p>
                 </div>
 
 

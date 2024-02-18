@@ -3,6 +3,7 @@
   grid-template-rows: auto auto auto; /* Three rows */
   grid-gap: 10px; /* Gap between grid items */
   width: 100%;
+  color: #093f6b;
 }
 
 .grid-item {
@@ -48,6 +49,11 @@
 
 .bottom-right-border {
   border-radius: 30px;
+}
+
+.top-card-text {
+  font-weight: bold;
+  color: #093f6b;
 }
 
 .bottom-row-card {
